@@ -4,10 +4,7 @@ services:
       context: ./frontend
     restart: unless-stopped
     ports:
-      - target: 80
-        published: false
-    labels:
-      - traefik.enable=true
+      - "80"
 
   backend:
     build:
