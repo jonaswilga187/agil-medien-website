@@ -14,6 +14,10 @@ const nodemailer = require('nodemailer');
 const app = express();
 const PORT = process.env.PORT || 3000;
 
+// Hinter Coolifys Traefik-Reverse-Proxy sonst sieht express-rate-limit nur
+// die Proxy-IP statt der echten Client-IP.
+app.set('trust proxy', 1);
+
 const CAPTCHA_SECRET = process.env.CAPTCHA_SECRET;
 const ALLOWED_ORIGIN = process.env.ALLOWED_ORIGIN || 'https://agil-medien.de';
 const CONTACT_TO = process.env.CONTACT_TO || 'kontakt@agil-medien.de';
